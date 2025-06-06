@@ -1,7 +1,7 @@
 from albumentations import Compose, OneOf, Normalize
 from albumentations import HorizontalFlip, VerticalFlip, RandomRotate90, RandomCrop
 import ever as er
-from ever.api.preprocess.albu import RandomDiscreteScale
+from ever.preprocess.albu import RandomDiscreteScale
 
 data = dict(
     train=dict(
