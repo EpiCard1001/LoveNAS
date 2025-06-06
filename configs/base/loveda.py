@@ -8,12 +8,12 @@ data = dict(
         type='LoveDALoader',
         params=dict(
             image_dir=[
-                './LoveDA/Train/Urban/images_png/',
-                './LoveDA/Train/Rural/images_png/',
+                '/kaggle/input/loveda-dataset/Train/Train/Rural/images_png',
+                '/kaggle/input/loveda-dataset/Train/Train/Urban/images_png/',
             ],
             mask_dir=[
-                './LoveDA/Train/Urban/masks_png/',
-                './LoveDA/Train/Rural/masks_png/',
+                '/kaggle/input/loveda-dataset/Train/Train/Rural/masks_png',
+                '/kaggle/input/loveda-dataset/Train/Train/Urban/masks_png',
             ],
             transforms=Compose([
                 RandomDiscreteScale([0.5, 0.75, 1.0, 1.25, 1.5, 1.75]),
@@ -37,12 +37,12 @@ data = dict(
         type='LoveDALoader',
         params=dict(
             image_dir=[
-                './LoveDA/Val/Urban/images_png/',
-                './LoveDA/Val/Rural/images_png/',
+                '/kaggle/working/datalns/Urban/images_png',
+                '/kaggle/working/datalns/Rural/images_png',
             ],
             mask_dir=[
-                './LoveDA/Val/Urban/masks_png/',
-                './LoveDA/Val/Rural/masks_png/',
+                '/kaggle/working/datalns/Urban/masks_png',
+                '/kaggle/working/datalns/Rural/masks_png',
             ],
             transforms=Compose([
                 Normalize(mean=(123.675, 116.28, 103.53),
