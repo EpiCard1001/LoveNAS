@@ -12,7 +12,8 @@ import ever as er
 from collections import OrderedDict
 from ever.interface import ConfigurableMixin
 from torch.utils.data import SequentialSampler
-from ever.api.data import distributed
+# from ever.api.data import distributed
+from torch.utils.data.distributed import DistributedSampler 
 import numpy as np
 import logging
 
@@ -102,8 +103,7 @@ class LoveDALoader(DataLoader, ConfigurableMixin):
         ConfigurableMixin.__init__(self, config)
         dataset = LoveDADataset(self.config.image_dir, self.config.mask_dir, self.config.transforms)
 
-        sampler = distributed.StepDistributedSampler(dataset) if self.config.training else SequentialSampler(
-            dataset)
+        sampler = DistributedSampler(dataset) if self.config.training else SequentialSampler(dataset)
 
         super(LoveDALoader, self).__init__(dataset,
                                        self.config.batch_size,
