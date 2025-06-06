@@ -26,7 +26,7 @@ config = dict(
                     act_cfg=dict(type='GELU'),
                     norm_cfg=dict(type='LN'),
                     with_cp=False,
-                    pretrained='./pretrain/swin_base_patch4_window7_224_22k.pth',
+                    pretrained='/kaggle/input/swim_base_lvn/pytorch/default/1/swinbase_loveda_30k.pth',
                     frozen_stages=-1,
                     init_cfg=None
                 )
