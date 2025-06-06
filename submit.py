@@ -29,6 +29,14 @@ er.registry.register_all()
 
 
 def evaluate(ckpt_path, config_path='base.hrnetw32', use_tta=False):
+    if not os.path.isabs(config_path):
+        config_path = os.path.abspath(config_path)
+    
+    print(f"Using config path: {config_path}")  # Debug print
+    
+    if not os.path.exists(config_path):
+        raise FileNotFoundError(f"Config file not found at: {config_path}")
+    
     cfg = import_config(config_path)
     model_state_dict = load_model_state_dict_from_ckpt(ckpt_path)
 
